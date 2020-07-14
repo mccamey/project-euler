@@ -42,10 +42,4 @@ public class LargestPrimeFactor{
         }
         System.out.println(largestPrimeFactor);
     }
-    
-    /*
-    *   Alternatively, use a binary tree to recursively split 
-    *   n into factors until all child nodes are prime, returning
-    *   the largest child node.
-    */
 }
