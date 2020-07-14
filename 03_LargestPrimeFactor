@@ -22,14 +22,16 @@ public class LargestPrimeFactor{
         if(N.remainder(BigInteger.valueOf(k)).intValue() == 0){
             
             // Check if k is not prime
+            
             if(k % 2 == 0)
                 return false;
             
-            for(int j = 3; j < k * 0.5 && k % j == 0; j += 2){
-                return false;
+            for(int j = 3; j < k * 0.5; j += 2){
+                if(k % j == 0)
+                    return false;
             }
             
-            // Here, k is both a factor of N and prime
+            // Return true when k is both a factor of N and prime
             return true;
         }
         return false;
@@ -55,3 +57,4 @@ public class LargestPrimeFactor{
     *   n into factors until all child nodes are prime, returning
     *   the largest child node.
     */
+}
