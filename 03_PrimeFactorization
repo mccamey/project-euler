@@ -1,12 +1,57 @@
 /*
 * The prime factors of 13195 are 5, 7, 13 and 29.
-*
 * What is the largest prime factor of the number 600851475143 ?
 */
 
-public class HelloWorld{
+import java.math.BigInteger; 
 
-     public static void main(String []args){
-        System.out.println("Hello World");
-     }
-}
+public class LargestPrimeFactor{
+
+    /*
+    *   Check if 2 is a factor of N.
+    *   If so, set largestPrimeFactor equal to 2.
+    *   Find each odd factor k of N.
+    *   Check if k is prime.
+    *   If so, set largestPrimeFactor equal to k.
+    *   Return largestPrimeFactor.
+    */
+    
+    public static boolean isPrimeFactor(int k, BigInteger N){
+        
+        // Check if k is a factor of N
+        if(N.remainder(BigInteger.valueOf(k)).intValue() == 0){
+            
+            // Check if k is not prime
+            if(k % 2 == 0)
+                return false;
+            
+            for(int j = 3; j < k * 0.5 && k % j == 0; j += 2){
+                return false;
+            }
+            
+            // Here, k is both a factor of N and prime
+            return true;
+        }
+        return false;
+    }
+   
+    public static void main(String []args){
+        
+        BigInteger N = new BigInteger("600851475143");
+        int largestPrimeFactor = 0;
+        
+        if(N.remainder(BigInteger.valueOf(2)).intValue() == 0)
+            largestPrimeFactor = 2;
+        
+        for(int i = 3; i < N.divide(BigInteger.valueOf(2)).intValue(); i += 2){
+            if(isPrimeFactor(i, N))
+                largestPrimeFactor = i;
+        }
+        System.out.println(largestPrimeFactor);
+    }
+    
+    /*
+    *   Alternatively, use a binary tree to recursively split 
+    *   n into factors until all child nodes are prime, returning
+    *   the largest child node.
+    */
