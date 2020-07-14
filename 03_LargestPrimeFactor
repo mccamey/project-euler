@@ -6,15 +6,6 @@
 import java.math.BigInteger; 
 
 public class LargestPrimeFactor{
-
-    /*
-    *   Check if 2 is a factor of N.
-    *   If so, set largestPrimeFactor equal to 2.
-    *   Find each odd factor k of N.
-    *   Check if k is prime.
-    *   If so, set largestPrimeFactor equal to k.
-    *   Return largestPrimeFactor.
-    */
     
     public static boolean isPrimeFactor(int k, BigInteger N){
         
