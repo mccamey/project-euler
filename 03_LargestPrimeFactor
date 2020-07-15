@@ -7,39 +7,7 @@ import java.math.BigInteger;
 
 public class LargestPrimeFactor{
     
-    public static boolean isPrimeFactor(int k, BigInteger N){
-        
-        // Check if k is a factor of N
-        if(N.remainder(BigInteger.valueOf(k)).intValue() == 0){
-            
-            // Check if k is not prime
-            
-            if(k % 2 == 0)
-                return false;
-            
-            for(int j = 3; j < k * 0.5; j += 2){
-                if(k % j == 0)
-                    return false;
-            }
-            
-            // Return true when k is both a factor of N and prime
-            return true;
-        }
-        return false;
-    }
-   
     public static void main(String []args){
         
-        BigInteger N = new BigInteger("600851475143");
-        int largestPrimeFactor = 0;
-        
-        if(N.remainder(BigInteger.valueOf(2)).intValue() == 0)
-            largestPrimeFactor = 2;
-        
-        for(int i = 3; i < N.divide(BigInteger.valueOf(2)).intValue(); i += 2){
-            if(isPrimeFactor(i, N))
-                largestPrimeFactor = i;
-        }
-        System.out.println(largestPrimeFactor);
     }
 }
