@@ -12,7 +12,7 @@ def is_prime(n):
   # so, to determine if n itself is prime,
   # we only need to check if other primes <= sqrt(n) are factors of n.
   #
-  # Since all primes > 3 are of the form 6n ± 1 (Euler's 6n=1 theorem),
+  # Since all primes > 3 are of the form 6n ± 1 (Euler's 6n+-1 theorem),
   # start with f=5 (which is prime)
   # and test f, f+2 for being prime
   # then loop by 6.
