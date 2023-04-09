@@ -1,6 +1,7 @@
-# Problem 3
-# The prime factors of 13195 are 5, 7, 13 and 29.
-# What is the largest prime factor of the number 600851475143 ?
+# Problem 7
+# By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+
+# What is the 10 001st prime number?
 
 def is_prime(n):
   if n == 2 or n == 3: return True
@@ -25,11 +26,12 @@ def is_prime(n):
     f += 6
   return True    
 
-n = 600851475143
-r = int(n**0.5)
+n = 10001; i = 0
 primes = []
 
-for i in range(r, 1, -1):
-    if is_prime(i) and n % i == 0:
-        primes.append(i)
-print(primes)
+while len(primes) < n:
+    if is_prime(i):
+        primes = primes + [i]
+    i += 1
+
+print(primes[n-1])
